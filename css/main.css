@@ -592,6 +592,10 @@
 
 .section-value .video {
   flex: 0 1 48%;
+  background-image: url("../img/loading.gif");
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .section-value .video__iframe {
