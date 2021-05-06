@@ -36,6 +36,10 @@ body.lock {
   overflow-y: hidden;
 }
 
+body.lock-modal {
+  overflow-y: hidden;
+}
+
 main {
   display: flex;
   flex-direction: column;

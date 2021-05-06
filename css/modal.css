@@ -33,7 +33,7 @@
   top: 50px;
   height: calc(100% - 50px);
   border: 1px solid #888;
-  width: 30%;
+  width: 40%;
   /* Could be more or less, depending on screen size */
 }
 
@@ -42,6 +42,47 @@
   height: 100%;
   position: relative;
   padding: 30px 15px;
+}
+
+.tabs__mobile-map {
+  display: none;
+  padding: 10px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #61b7b6;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #6e6e6e;
+}
+
+.tabs__mobile-map img {
+  margin-right: 10px;
+}
+
+.tabs__mobile-map._active {
+  position: relative;
+  padding: 20px;
+}
+
+.tabs__mobile-map._active img {
+  display: none;
+}
+
+.tabs__mobile-map._active span {
+  display: none;
+}
+
+.tabs__mobile-map._active::before {
+  content: ">";
+  font-size: 20px;
+  font-weight: 700;
+  color: #61b7b6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .toggle-map {
@@ -72,16 +113,18 @@
 .address-items {
   margin-top: 20px;
   display: none;
+  box-shadow: 0 0 10px #585858;
+  padding: 10px;
 }
 
-.address-items.open {
+.address-items.open-tab {
   display: flex;
   flex-wrap: wrap;
   position: relative;
   padding-left: 15px;
 }
 
-.address-items.open::before {
+.address-items.open-tab::before {
   content: "";
   position: absolute;
   top: 0;
@@ -131,7 +174,7 @@
   position: absolute;
   left: 0;
   top: 50px;
-  width: 70%;
+  width: 60%;
   height: calc(100% - 50px);
   background: #7c4444;
   display: none;
@@ -139,6 +182,34 @@
 
 .map-wrapper.open {
   display: block;
+}
+
+.modal-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.modal-map.open-map {
+  display: block;
+}
+
+.tabs__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabs__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+
+.tabs__close {
+  cursor: pointer;
 }
 
 .tab__buttons {
@@ -155,6 +226,18 @@
   justify-content: space-between;
   background: #fff;
   box-shadow: 0 0 10px #7a7979;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.tab__button img {
+  width: 30px;
+  height: 15px;
+}
+
+.tab__button.closed {
+  display: none;
 }
 
 @media (max-width: 1400px) {
@@ -177,24 +260,29 @@
 }
 
 @media (max-width: 768px) {
-  .address-item {
+  .modal-content {
+    width: 100%;
+    height: auto;
+    top: 50px;
+    transition: top 0.3s ease 0s;
+  }
+
+  .modal-content.open-content {
+    top: 450px;
+  }
+
+  .tabs__mobile-map {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .address-item__title {
     font-size: calc(12px + 8 * (100vw / 1920));
   }
 
-  .address-item__title-text {
-    text-align: center;
-  }
-
   .address-item__value {
     font-size: calc(12px + 8 * (100vw / 1920));
-    text-align: center;
   }
 
   .address-item__tel {
@@ -206,10 +294,19 @@
     font-size: calc(12px + 8 * (100vw / 1920));
     text-align: center;
   }
+
+  .map-wrapper {
+    height: 400px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 568px) {
-  .address-item {
-    flex: 0 1 80%;
+  .modal-content.open-content {
+    top: 300px;
+  }
+
+  .map-wrapper {
+    height: 250px;
   }
 }
