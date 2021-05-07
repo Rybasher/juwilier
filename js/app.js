@@ -167,25 +167,52 @@ btn_maps.addEventListener("click", function () {
 function initMap() {
 	let map = new google.maps.Map(document.getElementById("map"), {
 		center: { lat: 52.509963046225266, lng: 13.27073815343326 },
-		zoom: 12,
-	});
-	let map2 = new google.maps.Map(document.getElementById("map2"), {
-		center: { lat: 52.5328447, lng: 13.1950684 },
-
 		zoom: 15,
 	});
+	let marker1 = new google.maps.Marker({
+		position: { lat: 52.509963046225266, lng: 13.27073815343326 },
+		title: "Reichsstr. 107 14052 Berlin",
+	});
+	marker1.setMap(map);
+
+	let map2 = new google.maps.Map(document.getElementById("map2"), {
+		center: { lat: 52.5328447, lng: 13.1950684 },
+		zoom: 15,
+	});
+	let marker2 = new google.maps.Marker({
+		position: { lat: 52.5328447, lng: 13.1950684 },
+		title: "Brunsbütteler Damm 3  13581 Berlin",
+	});
+	marker2.setMap(map2);
 	let modal_map = new google.maps.Map(document.getElementById("modal-map"), {
 		center: { lat: 52.509963046225266, lng: 13.27073815343326 },
 		zoom: 16,
 	});
+	let marker_modal1 = new google.maps.Marker({
+		position: { lat: 52.509963046225266, lng: 13.27073815343326 },
+		title: "Brunsbütteler Damm 3  13581 Berlin",
+	});
+	marker_modal1.setMap(modal_map);
+
 	let modal_map2 = new google.maps.Map(document.getElementById("modal-map2"), {
 		center: { lat: 52.5328447, lng: 13.1950684 },
 		zoom: 16,
 	});
+	let marker_modal2 = new google.maps.Marker({
+		position: { lat: 52.5328447, lng: 13.1950684 },
+		title: "Brunsbütteler Damm 3  13581 Berlin",
+	});
+	marker_modal2.setMap(modal_map2);
+
 	let modal_map3 = new google.maps.Map(document.getElementById("modal-map3"), {
 		center: { lat: 48.1945961, lng: 16.3845929 },
 		zoom: 16,
 	});
+	let marker_modal3 = new google.maps.Marker({
+		position: { lat: 48.1945961, lng: 16.3845929 },
+		title: "Brunsbütteler Damm 3  13581 Berlin",
+	});
+	marker_modal3.setMap(modal_map3);
 }
 
 
